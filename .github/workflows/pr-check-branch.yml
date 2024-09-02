@@ -9,7 +9,7 @@ jobs:
     steps: 
       - name: Check if PR is from allowed branch
         run: |
-          sh scripts/checkPullRequestBranchName.sh
+          sh ./scripts/checkPullRequestBranchName.sh
         env: 
           TO_BRANCH: ${{ github.event.pull_request.base.ref }}
           FROM_BRANCH: ${{ github.event.pull_request.head.ref }}
