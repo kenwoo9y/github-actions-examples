@@ -7,6 +7,8 @@ jobs:
   check-branch: 
     runs-on: ubuntu-latest
     steps: 
+      - name: Check out code
+        uses: actions/checkout@v3 # リポジトリのコードをチェックアウトする
       - name: Check if PR is from allowed branch
         run: |
           sh ./scripts/checkPullRequestBranchName.sh
