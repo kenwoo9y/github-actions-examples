@@ -21,12 +21,10 @@ jobs:
         python-version: '3.9'  # Pythonのバージョンを指定
 
     - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
+      run: python -m pip install --upgrade pip
 
     - name: Run Pytest
-      run: |
-        pipenv run pytest -v
+      run: pipenv run pytest -v
 
   coverage:
     runs-on: ubuntu-latest
@@ -47,5 +45,4 @@ jobs:
         pip install pytest-cov  # カバレッジ計測ツールをインストール
 
     - name: Run Pytest with Coverage and Threshold
-      run: |
-        pipenv run pytest --cov --cov-fail-under=80  # カバレッジが80%未満なら失敗
+      run: pipenv run pytest --cov --cov-fail-under=80  # カバレッジが80%未満なら失敗
