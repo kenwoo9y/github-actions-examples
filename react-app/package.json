@@ -2,11 +2,11 @@
   "name": "react-app",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
+    "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx}'",
     "preview": "vite preview",
     "test": "vitest",
     "test:ui": "vitest --ui",
