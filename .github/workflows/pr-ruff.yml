@@ -1,0 +1,31 @@
+name: Run Ruff on Pull Request
+
+on:
+  pull_request:
+    branches: develop
+
+defaults:
+  run:
+    working-directory: ./python  # 作業ディレクトリを指定
+
+jobs:
+  ruff:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.9' # Pythonのバージョンを指定
+
+    - name: Install Ruff
+      run: python -m pip install ruff  # Ruffをインストール
+
+    - name: Run Ruff (lint)
+      run: ruff check --output-format=github .
+
+    - name: Run Ruff (format)
+      run: ruff format . --check --diff
