@@ -1,1 +1,3 @@
 .coverage
+.venv
+node_modules
