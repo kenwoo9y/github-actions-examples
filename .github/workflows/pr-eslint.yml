@@ -29,3 +29,6 @@ jobs:
     
     - name: Run Prettier
       run: yarn format
+
+    - name: Run Type Check
+      run: yarn tsc --noEmit
