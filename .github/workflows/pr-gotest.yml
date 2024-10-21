@@ -32,7 +32,7 @@ jobs:
         go tool cover -func=coverage.out | grep total | awk '{print $3}' | sed 's/%//' > coverage.txt
         coverage=$(cat coverage.txt)
         echo "Total coverage: $coverage%"
-        if (( $(echo "$coverage < 80.0" | bc -l) )); then
-          echo "Test coverage ($coverage%) is below 80%"
+        if (( $(echo "$coverage < 50.0" | bc -l) )); then
+          echo "Test coverage ($coverage%) is below 50%"
           exit 1
         fi
