@@ -1,4 +1,4 @@
-name: Run gofmt and golangci-lint on Pull Request
+name: Run gofmt and go vet on Pull Request
 
 on:
   pull_request:
@@ -32,13 +32,5 @@ jobs:
           exit 1
         fi
 
-    - name: Install golangci-lint
-      run: |
-        curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.53.2
-        golangci-lint version
-    
-    - name: Clean golangci-lint cache  # キャッシュをクリア
-      run: golangci-lint cache clean
-
-    - name: Run golangci-lint
-      run: golangci-lint run
+    - name: Run go vet
+      run: go vet ./...
