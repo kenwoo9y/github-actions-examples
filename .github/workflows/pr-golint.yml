@@ -36,6 +36,9 @@ jobs:
       run: |
         curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.53.2
         golangci-lint version
+    
+    - name: Clean golangci-lint cache  # キャッシュをクリア
+      run: golangci-lint cache clean
 
     - name: Run golangci-lint
       run: golangci-lint run
