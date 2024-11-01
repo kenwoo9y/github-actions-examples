@@ -26,4 +26,4 @@ jobs:
 
     - name: Run Rubocop for linting and formatting
       run: |
-        bundle exec rubocop
+        bundle exec rubocop --config .rubocop.yml
