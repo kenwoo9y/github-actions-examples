@@ -48,9 +48,26 @@ jacocoTestReport {
 		xml.required = true
 		html.required = true
 	}
+	// 除外するファイルやパッケージを指定
+    classDirectories.setFrom(
+        files(classDirectories.files.collect {
+            fileTree(dir: it, exclude: [
+                'com/example/spring_app/SpringAppApplication.class'
+            ])
+        })
+    )
 }
 
 jacocoTestCoverageVerification {
+	// 除外するファイルやパッケージを指定
+    classDirectories.setFrom(
+        files(classDirectories.files.collect {
+            fileTree(dir: it, exclude: [
+                'com/example/spring_app/SpringAppApplication.class'
+            ])
+        })
+    )
+	
 	violationRules {
 		rule {
 			limit {
