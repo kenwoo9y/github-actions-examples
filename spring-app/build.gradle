@@ -3,6 +3,7 @@ plugins {
 	id 'org.springframework.boot' version '3.3.5'
 	id 'io.spring.dependency-management' version '1.1.6'
 	id 'jacoco'
+	id 'com.diffplug.spotless' version '6.23.0'
 }
 
 group = 'com.example'
@@ -38,6 +39,12 @@ tasks.named('test') {
 	finalizedBy jacocoTestReport
 }
 
+spotless {
+    java {
+        googleJavaFormat()  // Google Java Format を使用
+    }
+}
+
 jacoco {
 	toolVersion = "0.8.7"
 }
@@ -67,7 +74,7 @@ jacocoTestCoverageVerification {
             ])
         })
     )
-	
+
 	violationRules {
 		rule {
 			limit {
