@@ -11,12 +11,11 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 @SpringBootTest
 @AutoConfigureMockMvc
 public class HelloControllerTest {
-    @Test
-    void HelloWorldが取得されることを確認(@Autowired MockMvc mvc) throws Exception {
+  @Test
+  void HelloWorldが取得されることを確認(@Autowired MockMvc mvc) throws Exception {
 
-        mvc.perform(
-                MockMvcRequestBuilders.get("/hello"))
-                .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.content().string("Hello World"));
-    }
+    mvc.perform(MockMvcRequestBuilders.get("/hello"))
+        .andExpect(MockMvcResultMatchers.status().isOk())
+        .andExpect(MockMvcResultMatchers.content().string("Hello World"));
+  }
 }
