@@ -1,4 +1,4 @@
-name: Run JUnit and Coverage on Pull Request
+name: Run Spotless and Checkstyle on Pull Request
 
 on:
   pull_request:
@@ -9,7 +9,7 @@ defaults:
     working-directory: ./spring-app  # 作業ディレクトリを指定
 
 jobs:
-  junit-coverage:
+  java-lint-and-format:
     runs-on: ubuntu-latest
     
     steps:
@@ -30,8 +30,8 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-gradle-
     
-    - name: Build and run tests
-      run: ./gradlew clean test jacocoTestReport
+    - name: Run Spotless check
+      run: ./gradlew spotlessCheck
     
-    - name: Generate Jacoco report
-      run: ./gradlew jacocoTestCoverageVerification
+    - name: Run Checkstyle
+      run: ./gradlew check
