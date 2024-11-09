@@ -9,7 +9,7 @@ defaults:
     working-directory: ./spring-app  # 作業ディレクトリを指定
 
 jobs:
-  pytest-coverage:
+  junit-coverage:
     runs-on: ubuntu-latest
     
     steps:
