@@ -1,0 +1,38 @@
+name: Ruby CI Workflow
+
+on:
+  pull_request:
+    branches: develop
+
+defaults:
+  run:
+    working-directory: ./rails-app  # 作業ディレクトリを指定
+
+jobs:
+  ruby-ci:
+    runs-on: ubuntu-latest
+
+    steps:
+      # コードのチェックアウト
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Rubyのセットアップ
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.0.2' # Rubyのバージョンを指定
+
+      # 依存関係のインストール
+      - name: Install dependencies
+        run: bundle install
+
+      # RubocopによるLintとFormatチェック
+      - name: Run Rubocop for linting and formatting
+        run: |
+          bundle exec rubocop --config .rubocop.yml
+
+      # RSpecのテスト実行
+      - name: Run RSpec with coverage
+        run: |
+          bundle exec rspec
