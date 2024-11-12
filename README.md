@@ -44,7 +44,7 @@ Java projects use the following tools:
 - **Linter/Formatter**: `Spotless`, `Checkstyle`  
   - `Spotless` formats the code, and `Checkstyle` checks code style.
 
-### 5. **React (JavaScript/TypeScript)**
+### 5. **React (TypeScript)**
 For React projects (including TypeScript), we use:
 - **Testing**: `Vitest`  
   - A fast testing framework well-suited for testing React components.
