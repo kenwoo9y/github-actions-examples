@@ -37,7 +37,7 @@ For Ruby projects, we use:
 - **Linter/Formatter**: `Rubocop`  
   - Checks code quality and automatically formats the code.
 
-### 4. *Spring Boot( Java)**
+### 4. **Spring Boot (Java)**
 Java projects use the following tools:
 - **Testing**: `JUnit`, `Jacoco`  
   - `JUnit` is a standard testing framework, while `Jacoco` measures code coverage.
