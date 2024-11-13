@@ -22,6 +22,8 @@ For Go, we use the following tools to ensure code quality:
   - Identifies potential bugs and deprecated code usage.
 - **Formatter**: `go fmt`  
   - Automatically formats the code to follow Go conventions.
+- **Coverage Threshold Setting**: Defined in `pr-go-ci.yml`.
+- **Coverage Report Location**: Displayed in the console output.
 
 ### 2. **Python**
 In Python, the following tools are used:
@@ -29,6 +31,8 @@ In Python, the following tools are used:
   - `pytest` is a flexible testing framework, and `pytest-cov` provides coverage measurement.
 - **Linter/Formatter**: `Ruff`  
   - A fast Python linter with built-in formatting capabilities.
+- **Coverage Threshold Setting**: Defined in `pr-python-ci.yml`.
+- **Coverage Report Location**: Displayed in the console output.
 
 ### 3. **Ruby on Rails (Ruby)**
 For Ruby projects, we use:
@@ -36,6 +40,8 @@ For Ruby projects, we use:
   - A popular testing framework for Ruby.
 - **Linter/Formatter**: `Rubocop`  
   - Checks code quality and automatically formats the code.
+- **Coverage Threshold Setting**: Defined in `./spec/spec_helper.rb` using `SimpleCov`.
+- **Coverage Report Location**: `./coverage/index.html`.
 
 ### 4. **Spring Boot (Java)**
 Java projects use the following tools:
@@ -43,6 +49,8 @@ Java projects use the following tools:
   - `JUnit` is a standard testing framework, while `Jacoco` measures code coverage.
 - **Linter/Formatter**: `Spotless`, `Checkstyle`  
   - `Spotless` formats the code, and `Checkstyle` checks code style.
+- **Coverage Threshold Setting**: Defined in `./build.gradle` using `jacocoTestCoverageVerification.violationRules`.
+- **Coverage Report Location**: `./build/reports/jacoco/test/html/index.html`.
 
 ### 5. **React (TypeScript)**
 For React projects (including TypeScript), we use:
@@ -52,6 +60,8 @@ For React projects (including TypeScript), we use:
   - Performs static analysis to identify code issues.
 - **Formatter**: `Prettier`  
   - Standardizes code formatting to improve readability.
+- **Coverage Threshold Setting**: Defined in `./vite.config.ts` using `test.coverage.thresholds`.
+- **Coverage Report Location**: Displayed in the console output.
 
 ## How to Use
 
@@ -68,7 +78,8 @@ $ go test ./... -v -cover
 
 #### Python
 ```
-$ ruff check .
+$ ruff check --output-format=github .
+$ ruff format . --check --diff
 $ pytest --cov
 ```
 
