@@ -1,4 +1,4 @@
-name: merge_branch_name_check
+name: PullRequest Branch Name Validation
 on: 
   pull_request:
     types: [opened, reopened, synchronize]
@@ -7,9 +7,11 @@ jobs:
   check-branch: 
     runs-on: ubuntu-latest
     steps: 
+      # コードのチェックアウト
       - name: Check out code
-        uses: actions/checkout@v4 # リポジトリのコードをチェックアウトする
-      - name: Check if PR is from allowed branch
+        uses: actions/checkout@v4
+      
+      - name: Validate PR Source Branch Name
         run: |
           sh ./scripts/checkPullRequestBranchName.sh
         env: 
