@@ -1,5 +1,5 @@
-go/* linguist-documentation
-python/* linguist-documentation
-rails-app/* linguist-documentation
-react-app/* linguist-documentation
-spring-app/* linguist-documentation
+go/** linguist-documentation
+python/** linguist-documentation
+rails-app/** linguist-documentation
+react-app/** linguist-documentation
+spring-app/** linguist-documentation
