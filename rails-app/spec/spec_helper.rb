@@ -17,7 +17,7 @@
 
 require 'simplecov'
 SimpleCov.start 'rails' do
-  minimum_coverage 19 # カバレッジが80%未満の場合は失敗
+  minimum_coverage 19 # カバレッジが19%未満の場合は失敗
 end
 
 # See https://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
