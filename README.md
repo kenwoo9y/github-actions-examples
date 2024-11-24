@@ -78,7 +78,7 @@ $ go test ./... -v -cover
 
 #### Python
 ```
-$ ruff check --output-format=github .
+$ ruff check .
 $ ruff format . --check --diff
 $ pytest --cov
 ```
