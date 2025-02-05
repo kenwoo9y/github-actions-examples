@@ -27,13 +27,13 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
-      # ESLintの実行
-      - name: Run ESLint
-        run: yarn lint
-
       # Prettierの実行
       - name: Run Prettier
-        run: yarn format
+        run: yarn format:check
+
+      # ESLintの実行
+      - name: Run ESLint
+        run: yarn lint:check
 
       # 型チェック
       - name: Run Type Check
